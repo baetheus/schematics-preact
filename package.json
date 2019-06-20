@@ -3,8 +3,9 @@
   "version": "0.1.2",
   "description": "Schematics for preact with typescript",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "test": "echo 'No Tests!'"
+    "build": "tsc",
+    "release": "npx standard-version",
+    "test": "tsc --noEmit"
   },
   "keywords": [
     "schematics"
@@ -20,7 +21,9 @@
     "typescript": "^2.5.2"
   },
   "main": "src/collection.json",
-  "devDependencies": {},
+  "devDependencies": {
+    "standard-version": "^6.0.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/baetheus/schematics-preact.git"

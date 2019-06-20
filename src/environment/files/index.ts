@@ -1,18 +1,25 @@
-import { env as dev } from './dev.env';
-import { env as mock } from './mock.env';
-import { env as prod } from './prod.env';
+import * as pkg from '../../package.json';
+import { environment as def } from './default.env';
+import { environment as dev } from './development.env';
 import { Environment } from './environment';
+import { environment as prod } from './production.env';
+import { environment as stage } from './staging.env';
 
-const getEnv = () => {
-  switch (process.env.NODE_ENV) {
-    case 'production':
-      return prod;
-    case 'development':
-      return dev;
-    case 'mock':
-    default:
-      return mock;
-  }
-};
+let environment!: Environment;
+const version = pkg.version || 'unknown';
 
-export const environment: Environment = getEnv();
+switch (process.env.REACT_APP_BUILD_ENV) {
+  case 'dev':
+    environment = dev;
+    break;
+  case 'prod':
+    environment = prod;
+    break;
+  case 'stage':
+    environment = stage;
+    break;
+  default:
+    environment = def;
+}
+
+export { environment, version };
