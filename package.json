@@ -1,6 +1,6 @@
 {
   "name": "@nll/schematics-preact",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Schematics for preact with typescript",
   "scripts": {
     "build": "tsc",
